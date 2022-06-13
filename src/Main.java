@@ -1,7 +1,7 @@
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,8 +22,42 @@ public class Main {
 
 
 
-        System.out.println(curso1);
+        /*System.out.println(curso1);
         System.out.println(curso2);
-        System.out.println(mentoria);
+        System.out.println(mentoria);*/
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devChristiane = new Dev();
+        devChristiane.setNome("Chritiane");
+        devChristiane.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos" + devChristiane.getConteudosInscritos());
+        devChristiane.progredir();
+        devChristiane.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos" + devChristiane.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos" + devChristiane.getConteudosConcluidos());
+        System.out.println("XP:" + devChristiane.calcularTotalXp());
+
+        System.out.println("--------");
+
+
+        Dev devArthur = new Dev();
+        devArthur.setNome("Arthur");
+        devArthur.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos" + devArthur.getConteudosInscritos());
+        devArthur.progredir();
+        devArthur.progredir();
+        devArthur.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos" + devArthur.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos" + devArthur.getConteudosConcluidos());
+        System.out.println("XP:" + devArthur.calcularTotalXp());
+
     }
 }
